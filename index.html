@@ -87,8 +87,11 @@ button:hover{
 
 .tabla{
     width:100%;
-    border-collapse:collapse;
     margin-top:15px;
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border-radius:16px;
 }
 
 .tabla th,
@@ -118,6 +121,35 @@ button:hover{
     font-size:22px;
     margin:15px 0;
     font-weight:bold;
+}
+.tabla-aprobada{
+    border: 2px solid #86efac;
+    background-color: #f0fdf4;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.tabla-rechazada{
+    border: 2px solid #fca5a5;
+    background-color: #fef2f2;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.tabla tr:first-child th:first-child{
+    border-top-left-radius: 12px;
+}
+
+.tabla tr:first-child th:last-child{
+    border-top-right-radius: 12px;
+}
+
+.tabla tr:last-child td:first-child{
+    border-bottom-left-radius: 12px;
+}
+
+.tabla tr:last-child td:last-child{
+    border-bottom-right-radius: 12px;
 }
 </style>
 </head>
@@ -191,8 +223,11 @@ function validar(){
     // S ↔ (P ∧ Q ∧ R)
     const S = P && Q && R;
 
+    // Define el color de la tabla
+    const claseTabla = S ? "tabla-aprobada" : "tabla-rechazada";
+
     let html = `
-        <table class="tabla">
+        <table class="tabla ${claseTabla}">
             <tr>
                 <th>Variable</th>
                 <th>Descripción</th>
@@ -213,7 +248,7 @@ function validar(){
                 <td>Términos aceptados</td>
                 <td>${R ? "V" : "F"}</td>
             </tr>
-            <tr>
+            <tr style="font-weight:bold;">
                 <td>S</td>
                 <td>Registrar cuenta</td>
                 <td>${S ? "V" : "F"}</td>
