@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Validación Lógica</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    padding:20px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    margin-bottom:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.checkbox{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.checkbox input{
+    width:auto;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    background:#2563eb;
+    color:white;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.resultado{
+    margin-top:20px;
+}
+
+.tabla{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.tabla th,
+.tabla td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+.correcto{
+    color:green;
+    font-weight:bold;
+}
+
+.error{
+    color:red;
+    font-weight:bold;
+}
+
+.estado{
+    font-size:18px;
+    margin-top:15px;
+}
+
+.expresion{
+    text-align:center;
+    font-size:22px;
+    margin:15px 0;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h1>Sistema de Validación Lógica</h1>
+
+        <p>
+            Este sistema aplica la expresión:
+        </p>
+
+        <div class="expresion">
+            S ↔ (P ∧ Q ∧ R)
+        </div>
+
+        <p>
+            Donde:
+        </p>
+
+        <ul>
+            <li>P = Email válido</li>
+            <li>Q = Contraseña con mínimo 8 caracteres</li>
+            <li>R = Aceptó términos y condiciones</li>
+            <li>S = El sistema registra la cuenta</li>
+        </ul>
+    </div>
+
+    <div class="card">
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="correo@cun.edu.co">
+
+        <label>Contraseña</label>
+        <input type="password" id="password" placeholder="Mínimo 8 caracteres">
+
+        <div class="checkbox">
+            <input type="checkbox" id="terminos">
+            <span>Acepto términos y condiciones</span>
+        </div>
+
+        <button onclick="validar()">
+            Registrar cuenta
+        </button>
+
+        <div id="resultado" class="resultado"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+function validar(){
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const terminos = document.getElementById("terminos").checked;
+
+    // P
+    const P = email.toLowerCase().endsWith("@cun.edu.co");
+
+    // Q
+    const Q = password.length >= 8;
+
+    // R
+    const R = terminos;
+
+    // S ↔ (P ∧ Q ∧ R)
+    const S = P && Q && R;
+
+    let html = `
+        <table class="tabla">
+            <tr>
+                <th>Variable</th>
+                <th>Descripción</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td>P</td>
+                <td>Email válido</td>
+                <td>${P ? "V" : "F"}</td>
+            </tr>
+            <tr>
+                <td>Q</td>
+                <td>Contraseña válida</td>
+                <td>${Q ? "V" : "F"}</td>
+            </tr>
+            <tr>
+                <td>R</td>
+                <td>Términos aceptados</td>
+                <td>${R ? "V" : "F"}</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>Registrar cuenta</td>
+                <td>${S ? "V" : "F"}</td>
+            </tr>
+        </table>
+    `;
+
+    if(S){
+        html += `
+            <div class="estado correcto">
+                ✅ Cuenta creada correctamente
+            </div>
+        `;
+    }
+    else{
+        html += `
+            <div class="estado error">
+                ❌ No se puede crear la cuenta
+            </div>
+        `;
+    }
+
+    document.getElementById("resultado").innerHTML = html;
+}
+
+</script>
+
+</body>
+</html>
