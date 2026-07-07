@@ -37,20 +37,20 @@
 
     <label>¿El administrador aprueba la solicitud?</label>
     <select id="q">
-      <option value="true">Sí</option>
       <option value="false">No</option>
+      <option value="true">Sí</option>
     </select>
 
     <label>¿Es administrador?</label>
     <select id="r">
-      <option value="true">Sí</option>
       <option value="false">No</option>
+      <option value="true">Sí</option>
     </select>
 
     <label>¿Tiene permisos especiales?</label>
     <select id="t">
-      <option value="true">Sí</option>
       <option value="false">No</option>
+      <option value="true">Sí</option>
     </select>
 
     <button onclick="validarFinal()">
@@ -77,9 +77,9 @@
 <script>
 function validarFinal(){
     const P=document.getElementById("p").value==="true";
-    const Q=document.getElementById("q").value==="false";
-    const R=document.getElementById("r").value==="false";
-    const T=document.getElementById("t").value==="false";
+    const Q=document.getElementById("q").value==="true";
+    const R=document.getElementById("r").value==="true";
+    const T=document.getElementById("t").value==="true";
 
     const implicacion = (!P || Q);
     const S = implicacion && (R || T);
