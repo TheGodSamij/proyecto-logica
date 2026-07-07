@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 2 - Seguridad de la Contraseña</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <h1>Módulo 2 - Seguridad de la Contraseña</h1>
+
+    <p>En este módulo se utiliza una expresión lógica más compleja para validar la fortaleza de la contraseña.</p>
+
+    <div class="expresion">
+      S ↔ ((P ∧ Q) ∧ (R ∨ T))
+    </div>
+
+    <ul>
+      <li><strong>P:</strong> La contraseña contiene al menos una letra mayúscula.</li>
+      <li><strong>Q:</strong> La contraseña contiene al menos un número.</li>
+      <li><strong>R:</strong> La contraseña contiene un carácter especial.</li>
+      <li><strong>T:</strong> La contraseña tiene 12 o más caracteres.</li>
+      <li><strong>S:</strong> La contraseña es segura.</li>
+    </ul>
+
+    <p class="usuario">
+      Usuario: <span id="correo"></span>
+    </p>
+
+    <button onclick="validarModulo2()">
+      Validar contraseña
+    </button>
+
+    <div id="resultado"></div>
+
+    <div class="progreso">
+      <div style="width:50%"></div>
+    </div>
+
+    <p class="info">
+      Si la expresión lógica es verdadera, el sistema permitirá continuar al Módulo 3.
+    </p>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+document.getElementById("correo").textContent =
+localStorage.getItem("correo") || "No disponible";
+</script>
+
+</body>
+</html>

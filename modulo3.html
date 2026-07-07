@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 3 - Validación de Acceso</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <h1>Módulo 3 - Validación de Acceso</h1>
+
+    <p>Este módulo incorpora el operador de negación para determinar si un usuario puede acceder al sistema.</p>
+
+    <div class="expresion">S ↔ ((P ∧ Q) ∧ ¬R)</div>
+
+    <ul>
+      <li><strong>P:</strong> Usuario autenticado.</li>
+      <li><strong>Q:</strong> Cuenta activa.</li>
+      <li><strong>R:</strong> Cuenta bloqueada.</li>
+      <li><strong>S:</strong> Acceso autorizado.</li>
+    </ul>
+
+    <p class="usuario">Usuario: <span id="correo"></span></p>
+
+    <label for="p">¿Usuario autenticado?</label>
+    <select id="p">
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+
+    <label for="q">¿Cuenta activa?</label>
+    <select id="q">
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+
+    <label for="r">¿Cuenta bloqueada?</label>
+    <select id="r">
+      <option value="false">No</option>
+      <option value="true">Sí</option>
+    </select>
+
+    <button onclick="validarModulo3()">Validar acceso</button>
+
+    <div id="resultado"></div>
+
+    <div class="progreso">
+      <div style="width:75%"></div>
+    </div>
+
+    <p class="info">
+      El acceso solo será autorizado si el usuario está autenticado, la cuenta está activa y <strong>no</strong> está bloqueada.
+    </p>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+document.getElementById("correo").textContent =
+localStorage.getItem("correo") || "No disponible";
+</script>
+
+</body>
+</html>

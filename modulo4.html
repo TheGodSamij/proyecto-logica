@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 4 - Autorización Final</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body onload="cargarResumen()">
+
+<div class="container">
+  <div class="card">
+
+    <h1>Módulo 4 - Autorización Final</h1>
+
+    <p>Este módulo aplica el operador de implicación para decidir si el acceso final es autorizado.</p>
+
+    <div class="expresion">
+      S ↔ ((P → Q) ∧ (R ∨ T))
+    </div>
+
+    <ul>
+      <li><strong>P:</strong> El usuario solicita acceso.</li>
+      <li><strong>Q:</strong> El administrador aprueba la solicitud.</li>
+      <li><strong>R:</strong> El usuario es administrador.</li>
+      <li><strong>T:</strong> El usuario tiene permisos especiales.</li>
+      <li><strong>S:</strong> Acceso final autorizado.</li>
+    </ul>
+
+    <p class="usuario">Usuario: <span id="correo"></span></p>
+
+    <label>¿El usuario solicita acceso?</label>
+    <select id="p">
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+
+    <label>¿El administrador aprueba la solicitud?</label>
+    <select id="q">
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+
+    <label>¿Es administrador?</label>
+    <select id="r">
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+
+    <label>¿Tiene permisos especiales?</label>
+    <select id="t">
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+
+    <button onclick="validarFinal()">Validar autorización</button>
+
+    <div id="resultado"></div>
+
+    <div class="progreso">
+      <div style="width:100%"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+function validarFinal(){
+    const P=document.getElementById("p").value==="true";
+    const Q=document.getElementById("q").value==="true";
+    const R=document.getElementById("r").value==="true";
+    const T=document.getElementById("t").value==="true";
+
+    const implicacion = (!P || Q);
+    const S = implicacion && (R || T);
+
+    mostrarTabla(
+        "resultado",
+        ["P","Q","R","T"],
+        ["Solicita acceso","Solicitud aprobada","Administrador","Permisos especiales"],
+        [P,Q,R,T,S],
+        "Acceso final autorizado"
+    );
+
+    if(S){
+        setTimeout(()=>{
+            alert("¡Proyecto completado correctamente!");
+            reiniciarSistema();
+        },1200);
+    }
+}
+</script>
+
+</body>
+</html>

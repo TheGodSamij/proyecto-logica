@@ -1,0 +1,197 @@
+/* ===== Estilos generales ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    padding:20px;
+    color:#222;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,.10);
+    margin-bottom:20px;
+}
+
+h1,h2{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+p,li{
+    line-height:1.6;
+}
+
+.expresion{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:18px;
+}
+
+.checkbox input{
+    width:auto;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+/* ===== Tabla ===== */
+
+.tabla{
+    width:100%;
+    margin-top:20px;
+    border-collapse:separate;
+    border-spacing:0;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+}
+
+.tabla th,
+.tabla td{
+    padding:12px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+.tabla th{
+    font-weight:bold;
+}
+
+.tabla tr:first-child th:first-child{
+    border-top-left-radius:16px;
+}
+
+.tabla tr:first-child th:last-child{
+    border-top-right-radius:16px;
+}
+
+.tabla tr:last-child td:first-child{
+    border-bottom-left-radius:16px;
+}
+
+.tabla tr:last-child td:last-child{
+    border-bottom-right-radius:16px;
+}
+
+/* Resultado verdadero */
+
+.tabla-aprobada{
+    border:2px solid #86efac;
+}
+
+.tabla-aprobada th,
+.tabla-aprobada td{
+    background:#f0fdf4;
+}
+
+/* Resultado falso */
+
+.tabla-rechazada{
+    border:2px solid #fca5a5;
+}
+
+.tabla-rechazada th,
+.tabla-rechazada td{
+    background:#fef2f2;
+}
+
+/* Información */
+
+.info{
+    margin-top:15px;
+    color:#555;
+}
+
+.usuario{
+    margin:15px 0;
+    font-weight:bold;
+}
+
+.progreso{
+    width:100%;
+    height:10px;
+    background:#ddd;
+    border-radius:8px;
+    overflow:hidden;
+    margin:20px 0;
+}
+
+.progreso div{
+    height:100%;
+    background:#2563eb;
+    transition:width .4s;
+}
+
+.resumen{
+    background:#f8fafc;
+    border-left:5px solid #2563eb;
+    padding:15px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+@media(max-width:600px){
+    .card{
+        padding:18px;
+    }
+
+    .expresion{
+        font-size:20px;
+    }
+
+    .tabla th,
+    .tabla td{
+        padding:8px;
+        font-size:14px;
+    }
+}
