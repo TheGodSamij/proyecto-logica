@@ -28,11 +28,19 @@
     </ul>
 
     <p class="usuario">
-      Usuario: <span id="correo"></span>
+        Correo: <span id="correo"></span><br>
+        Documento: <span id="documento"></span>
     </p>
 
     <button onclick="validarModulo2()">
-      Validar contraseña
+        Validar contraseña
+    </button>
+
+    <button
+        id="btnModulo3"
+        onclick="window.location.href='modulo3.html'"
+        disabled>
+        Siguiente módulo →
     </button>
 
     <div id="resultado"></div>
@@ -51,7 +59,10 @@
 <script src="script.js"></script>
 <script>
 document.getElementById("correo").textContent =
-localStorage.getItem("correo") || "No disponible";
+    localStorage.getItem("correo") || "No disponible";
+
+document.getElementById("documento").textContent =
+    localStorage.getItem("documento") || "No disponible";
 </script>
 
 </body>

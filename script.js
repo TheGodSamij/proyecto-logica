@@ -45,14 +45,12 @@ function mostrarTabla(resultadoId, variables, descripciones, valores, tituloS) {
 
 function validarModulo1() {
 
-    alert("La función sí se ejecutó");
-
     const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+    const documento = document.getElementById("documento").value.trim();
     const terminos = document.getElementById("terminos").checked;
 
     const P = email.toLowerCase().endsWith("@cun.edu.co");
-    const Q = password.length >= 8;
+    const Q = /^[0-9]{8,10}$/.test(documento);
     const R = terminos;
 
     const S = P && Q && R;
@@ -62,23 +60,24 @@ function validarModulo1() {
         ["P", "Q", "R"],
         [
             "Correo institucional",
-            "Contraseña válida",
+            "Número de documento válido",
             "Términos aceptados"
         ],
         [P, Q, R, S],
         "Registrar cuenta"
     );
 
-    if (S) {
+    if(S){
 
         localStorage.setItem("correo", email);
-        localStorage.setItem("password", password);
+        localStorage.setItem("documento", documento);
 
-        setTimeout(() => {
+        document.getElementById("btnModulo2").disabled = false;
 
-            window.location.href = "modulo2.html";
+    }
+    else{
 
-        }, 1200);
+        document.getElementById("btnModulo2").disabled = true;
 
     }
 
@@ -91,7 +90,7 @@ function validarModulo1() {
 
 function validarModulo2() {
 
-    const password = localStorage.getItem("password") || "";
+    const password = document.getElementById("password").value;
 
     const P = /[A-Z]/.test(password);
     const Q = /\d/.test(password);
@@ -114,15 +113,13 @@ function validarModulo2() {
     );
 
     if (S) {
+        localStorage.setItem("password", password);
 
-        setTimeout(() => {
-
-            window.location.href = "modulo3.html";
-
-        }, 1200);
-
+        document.getElementById("btnModulo3").disabled = false;
     }
-
+    else{
+        document.getElementById("btnModulo3").disabled = true;
+    }
 }
 
 // ===============================
@@ -152,11 +149,12 @@ function validarModulo3() {
 
     if (S) {
 
-        setTimeout(() => {
+        document.getElementById("btnModulo4").disabled = false;
 
-            window.location.href = "modulo4.html";
+    }
+    else{
 
-        }, 1200);
+        document.getElementById("btnModulo4").disabled = true;
 
     }
 
@@ -167,11 +165,34 @@ function validarModulo3() {
 // S ↔ ((P → Q) ∧ (R ∨ T))
 // ===============================
 
-function validarModulo4(P, Q, R, T) {
+function validarModulo4(){
+
+    const P = document.getElementById("p").value === "true";
+    const Q = document.getElementById("q").value === "true";
+    const R = document.getElementById("r").value === "true";
+    const T = document.getElementById("t").value === "true";
 
     const implicacion = (!P || Q);
+    const S = implicacion && (R || T);
 
-    return implicacion && (R || T);
+    mostrarTabla(
+        "resultado",
+        ["P","Q","R","T"],
+        [
+            "Solicita acceso",
+            "Solicitud aprobada",
+            "Es administrador",
+            "Tiene permisos especiales"
+        ],
+        [P,Q,R,T,S],
+        "Acceso autorizado"
+    );
+
+    if(S){
+        document.getElementById("btnFinalizar").disabled = false;
+    }else{
+        document.getElementById("btnFinalizar").disabled = true;
+    }
 
 }
 

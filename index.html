@@ -17,25 +17,34 @@
 
     <ul>
       <li><b>P:</b> El correo pertenece al dominio <code>@cun.edu.co</code>.</li>
-      <li><b>Q:</b> La contraseña tiene al menos 8 caracteres.</li>
+      <li><b>Q:</b> El número de documento contiene entre 8 y 10 dígitos.</li>
       <li><b>R:</b> El usuario aceptó los términos y condiciones.</li>
       <li><b>S:</b> El sistema registra la cuenta.</li>
       <br>
-      <li><b>Ejemplo:</b> Correo: usuario@cun.edu.co | Contraseña: 12345678</li>
+      <li><b>Ejemplo:</b> Correo: usuario@cun.edu.co | Documento: 1234567890</li>
     </ul>
 
     <label for="email">Correo institucional</label>
     <input id="email" type="email" placeholder="usuario@cun.edu.co">
 
-    <label for="password">Contraseña</label>
-    <input id="password" type="password" placeholder="Mínimo 8 caracteres">
+    <label for="documento">Número de documento</label>
+    <input id="documento" type="text" placeholder="1234567890">
 
     <div class="checkbox">
       <input id="terminos" type="checkbox">
       <span>Acepto los términos y condiciones</span>
     </div>
 
-    <button onclick="validarModulo1()">Validar registro</button>
+    <button onclick="validarModulo1()">
+        Validar datos
+    </button>
+
+    <button
+        id="btnModulo2"
+        onclick="window.location.href='modulo2.html'"
+        disabled>
+        Siguiente módulo →
+    </button>
 
     <div id="resultado"></div>
 
