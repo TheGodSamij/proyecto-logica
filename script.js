@@ -189,11 +189,13 @@ function validarModulo4(){
     );
 
     if(S){
+        document.getElementById("resultado").innerHTML += `
+            <div class="estado correcto">
+                ✅ ¡Todos los módulos fueron completados correctamente!
+            </div>
+        `;
         document.getElementById("btnFinalizar").disabled = false;
-    }else{
-        document.getElementById("btnFinalizar").disabled = true;
     }
-
 }
 
 // ===============================

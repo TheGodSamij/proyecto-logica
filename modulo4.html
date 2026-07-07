@@ -78,34 +78,5 @@
 </div>
 
 <script src="script.js"></script>
-<script>
-function validarFinal(){
-    const P=document.getElementById("p").value==="true";
-    const Q=document.getElementById("q").value==="true";
-    const R=document.getElementById("r").value==="true";
-    const T=document.getElementById("t").value==="true";
-
-    const implicacion = (!P || Q);
-    const S = implicacion && (R || T);
-
-    mostrarTabla(
-        "resultado",
-        ["P","Q","R","T"],
-        ["Solicita acceso","Solicitud aprobada","Administrador","Permisos especiales"],
-        [P,Q,R,T,S],
-        "Acceso final autorizado"
-    );
-
-    if(S){
-        document.getElementById("resultado").innerHTML += `
-            <div class="estado correcto">
-                ✅ ¡Todos los módulos fueron completados correctamente!
-            </div>
-        `;
-        document.getElementById("btnFinalizar").disabled = false;
-    }
-}
-</script>
-
 </body>
 </html>
