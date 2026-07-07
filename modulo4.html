@@ -21,6 +21,11 @@
       S ↔ ((P → Q) ∧ (R ∧ T))
     </div>
 
+    <p class="info">
+    El operador de implicación (→) significa que si el usuario solicita acceso,
+    entonces debe contar con permisos de administrador.
+    </p>
+
     <ul>
     <li><strong>P:</strong> El usuario desea acceder al panel administrativo.</li>
     <li><strong>Q:</strong> El usuario posee permisos de administrador.</li>
@@ -29,7 +34,10 @@
     <li><strong>S:</strong> El acceso al panel es autorizado.</li>  
     </ul>
 
-    <p class="usuario">Usuario: <span id="correo"></span></p>
+    <p class="usuario">
+        Correo: <span id="correo"></span><br>
+        Documento: <span id="documento"></span>
+    </p>
 
     <label>¿Desea acceder al panel administrativo?</label>
     <select id="p">
@@ -57,13 +65,13 @@
         <option value="true">Sí</option>
     </select>
 
-    <button onclick="validarFinal()">
+    <button onclick="validarModulo4()">
         Validar autorización
     </button>
 
     <button
         id="btnFinalizar"
-        onclick="finalizarProyecto()"
+        onclick="reiniciarSistema()"
         disabled>
         Finalizar proyecto
     </button>
@@ -80,7 +88,10 @@
 <script src="script.js"></script>
 <script>
 document.getElementById("correo").textContent =
-localStorage.getItem("correo") || "No disponible";
+    localStorage.getItem("correo") || "No disponible";
+
+document.getElementById("documento").textContent =
+    localStorage.getItem("documento") || "No disponible";
 </script>
 </body>
 </html>

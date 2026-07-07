@@ -23,7 +23,10 @@
       <li><strong>S:</strong> Acceso autorizado.</li>
     </ul>
 
-    <p class="usuario">Usuario: <span id="correo"></span></p>
+    <p class="usuario">
+        Correo: <span id="correo"></span><br>
+        Documento: <span id="documento"></span>
+    </p>
 
     <label for="p">¿Usuario autenticado?</label>
     <select id="p">
@@ -70,7 +73,10 @@
 <script src="script.js"></script>
 <script>
 document.getElementById("correo").textContent =
-localStorage.getItem("correo") || "No disponible";
+    localStorage.getItem("correo") || "No disponible";
+
+document.getElementById("documento").textContent =
+    localStorage.getItem("documento") || "No disponible";
 </script>
 
 </body>
