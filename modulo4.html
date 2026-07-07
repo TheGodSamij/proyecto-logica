@@ -77,9 +77,9 @@
 <script>
 function validarFinal(){
     const P=document.getElementById("p").value==="true";
-    const Q=document.getElementById("q").value==="true";
-    const R=document.getElementById("r").value==="true";
-    const T=document.getElementById("t").value==="true";
+    const Q=document.getElementById("q").value==="false";
+    const R=document.getElementById("r").value==="false";
+    const T=document.getElementById("t").value==="false";
 
     const implicacion = (!P || Q);
     const S = implicacion && (R || T);
