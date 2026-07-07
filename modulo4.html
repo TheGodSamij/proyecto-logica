@@ -11,46 +11,50 @@
 <div class="container">
   <div class="card">
 
-    <h1>Módulo 4 - Autorización Final</h1>
+    <h1>Módulo 4 - Acceso al Panel Administrativo</h1>
 
-    <p>Este módulo aplica el operador de implicación para decidir si el acceso final es autorizado.</p>
+    <p>
+    En este módulo se utiliza la implicación lógica para determinar si un usuario puede acceder al panel administrativo del sistema.
+    </p>
 
     <div class="expresion">
-      S ↔ ((P → Q) ∧ (R ∨ T))
+      S ↔ ((P → Q) ∧ (R ∧ T))
     </div>
 
     <ul>
-      <li><strong>P:</strong> El usuario solicita acceso.</li>
-      <li><strong>Q:</strong> El administrador aprueba la solicitud.</li>
-      <li><strong>R:</strong> El usuario es administrador.</li>
-      <li><strong>T:</strong> El usuario tiene permisos especiales.</li>
-      <li><strong>S:</strong> Acceso final autorizado.</li>
+    <li><strong>P:</strong> El usuario desea acceder al panel administrativo.</li>
+    <li><strong>Q:</strong> El usuario posee permisos de administrador.</li>
+    <li><strong>R:</strong> La cuenta está activa.</li>
+    <li><strong>T:</strong> El usuario inició sesión correctamente.</li>
+    <li><strong>S:</strong> El acceso al panel es autorizado.</li>  
     </ul>
 
     <p class="usuario">Usuario: <span id="correo"></span></p>
 
-    <label>¿El usuario solicita acceso?</label>
+    <label>¿Desea acceder al panel administrativo?</label>
     <select id="p">
-      <option value="true">Sí</option>
-      <option value="false">No</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
     </select>
 
-    <label>¿El administrador aprueba la solicitud?</label>
+    <label>¿Tiene permisos de administrador?</label>
     <select id="q">
-      <option value="false">No</option>
-      <option value="true">Sí</option>
+        <option value="false">No</option>
+        <option value="true">Sí</option>
     </select>
 
-    <label>¿Es administrador?</label>
+    <label>¿La cuenta está activa?</label>
+
     <select id="r">
-      <option value="false">No</option>
-      <option value="true">Sí</option>
+        <option value="false">No</option>
+        <option value="true">Sí</option>
     </select>
 
-    <label>¿Tiene permisos especiales?</label>
+    <label>¿Inició sesión correctamente?</label>
+
     <select id="t">
-      <option value="false">No</option>
-      <option value="true">Sí</option>
+        <option value="false">No</option>
+        <option value="true">Sí</option>
     </select>
 
     <button onclick="validarFinal()">

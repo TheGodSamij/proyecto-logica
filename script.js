@@ -173,19 +173,19 @@ function validarModulo4(){
     const T = document.getElementById("t").value === "true";
 
     const implicacion = (!P || Q);
-    const S = implicacion && (R || T);
+    const S = implicacion && (R && T);
 
     mostrarTabla(
         "resultado",
         ["P","Q","R","T"],
         [
-            "Solicita acceso",
-            "Solicitud aprobada",
-            "Es administrador",
-            "Tiene permisos especiales"
+            "Solicita acceso al panel",
+            "Tiene permisos de administrador",
+            "Cuenta activa",
+            "Inicio de sesión correcto"
         ],
         [P,Q,R,T,S],
-        "Acceso autorizado"
+        "Acceso al panel autorizado"
     );
 
     if(S){
