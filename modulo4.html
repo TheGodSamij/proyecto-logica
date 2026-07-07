@@ -53,7 +53,16 @@
       <option value="false">No</option>
     </select>
 
-    <button onclick="validarFinal()">Validar autorización</button>
+    <button onclick="validarFinal()">
+        Validar autorización
+    </button>
+
+    <button
+        id="btnFinalizar"
+        onclick="finalizarProyecto()"
+        disabled>
+        Finalizar proyecto
+    </button>
 
     <div id="resultado"></div>
 
@@ -84,10 +93,12 @@ function validarFinal(){
     );
 
     if(S){
-        setTimeout(()=>{
-            alert("¡Proyecto completado correctamente!");
-            reiniciarSistema();
-        },1200);
+        document.getElementById("resultado").innerHTML += `
+            <div class="estado correcto">
+                ✅ ¡Todos los módulos fueron completados correctamente!
+            </div>
+        `;
+        document.getElementById("btnFinalizar").disabled = false;
     }
 }
 </script>
