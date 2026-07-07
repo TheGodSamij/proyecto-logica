@@ -25,12 +25,20 @@
       <li><strong>R:</strong> La contraseña contiene un carácter especial.</li>
       <li><strong>T:</strong> La contraseña tiene 12 o más caracteres.</li>
       <li><strong>S:</strong> La contraseña es segura.</li>
+      <br>
+      <li><strong>Ejemplo:</strong> Contraseña: C0ntr@señaSegura!</li>
     </ul>
 
     <p class="usuario">
         Correo: <span id="correo"></span><br>
         Documento: <span id="documento"></span>
     </p>
+
+    <label for="password">Crear contraseña</label>
+    <input
+        id="password"
+        type="password"
+        placeholder="Ingrese una contraseña segura">
 
     <button onclick="validarModulo2()">
         Validar contraseña
