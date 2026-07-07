@@ -45,6 +45,8 @@ function mostrarTabla(resultadoId, variables, descripciones, valores, tituloS) {
 
 function validarModulo1() {
 
+    alert("La función sí se ejecutó");
+
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const terminos = document.getElementById("terminos").checked;
