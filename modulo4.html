@@ -78,5 +78,9 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+document.getElementById("correo").textContent =
+localStorage.getItem("correo") || "No disponible";
+</script>
 </body>
 </html>
